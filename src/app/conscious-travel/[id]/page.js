@@ -1,22 +1,24 @@
-import React from 'react'
-import ConsciousDetail from './conscious'
-import axios from 'axios';
+import React, { lazy, Suspense } from "react";
+const ConsciousDetail = lazy(() => import("./conscious"));
+import axios from "axios";
+import Loading from "@/components/Loading/Loading";
 
-function page({params}) {
+function page({ params }) {
   return (
-    <ConsciousDetail dest={params.id}  />
-  )
+    <Suspense fallback={<Loading />}>
+      <ConsciousDetail dest={params.id} />
+    </Suspense>
+  );
 }
-
 
 export async function generateMetadata({ params }) {
-  const response = await axios.get(`https://www.earthyhues.co.in/api-conscious-travel/${params.id}`);
-  const data = response.data
+  const response = await axios.get(
+    `https://www.earthyhues.co.in/api-conscious-travel/${params.id}`
+  );
+  const data = response.data;
   return {
     title: `${data[0].title}`,
-  }
+  };
 }
 
-export default page
-
-
+export default page;

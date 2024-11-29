@@ -1,6 +1,10 @@
 import React from 'react'
-import TestimonialDetail from './testimonials'
+const TestimonialDetail = dynamic(()=>import('./testimonials'),{
+  loading:()=> <Loading/>
+});
 import axios from 'axios';
+import dynamic from 'next/dynamic';
+import Loading from '@/components/Loading/Loading';
 
 function page({params}) {
   return (

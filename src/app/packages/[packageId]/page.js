@@ -1,6 +1,10 @@
 import React from 'react'
-import PackageDetail from './package'
+const PackageDetail = dynamic(()=>import('./package'),{
+  loading:()=> <Loading/>
+})
 import axios from 'axios';
+import dynamic from 'next/dynamic';
+import Loading from '@/components/Loading/Loading';
 
 function page({params}) {
   return (

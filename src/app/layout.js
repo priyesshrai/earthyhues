@@ -1,8 +1,26 @@
-import Affiliation from "@/components/Affiliation/Affiliation";
-import Footer from "@/components/Footer/Footer";
-import Header from "@/components/Header/Header";
-import SocialMedia from "@/components/SocialMedia/SocialMedia";
+const Affiliation = dynamic(
+  () => import("@/components/Affiliation/Affiliation"),
+  {
+    loading: () => <Loading />,
+  }
+);
+const Footer = dynamic(() => import("@/components/Footer/Footer"), {
+  loading: () => <Loading />,
+});
+
+const Header = dynamic(() => import("@/components/Header/Header"), {
+  loading: () => <Loading />,
+});
+const SocialMedia = dynamic(
+  () => import("@/components/SocialMedia/SocialMedia"),
+  {
+    loading: () => <Loading />,
+  }
+);
+import Loading from "@/components/Loading/Loading";
+import dynamic from "next/dynamic";
 import Script from "next/script";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "World's best Nature Travel Experience | Earthy Hues",
@@ -107,12 +125,13 @@ export default function RootLayout({ children }) {
         </Script>
       </head>
       <body>
-        <SocialMedia />
-        <Header />
-        {children}
-        <Affiliation />
-        <Footer />
-
+        <Suspense fallback={<Loading />}>
+          <SocialMedia />
+          <Header />
+          {children}
+          <Affiliation />
+          <Footer />
+        </Suspense>
         {/* Other Scripts */}
         <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

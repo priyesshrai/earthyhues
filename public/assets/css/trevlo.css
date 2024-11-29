@@ -2390,7 +2390,7 @@ path {
 }
 
 .tour-listing__card-image-box.hobl {
-  height: 30rem;
+  height: 20rem;
 }
 
 .tour-listing__card-image {
@@ -2747,7 +2747,7 @@ path {
   position: relative;
   border-radius: 20px;
   border: 0;
-  height: 30rem;
+  height: 20rem;
 }
 
 .tour-listing-two .tour-listing__card-image-box {
@@ -18551,9 +18551,9 @@ iframe.youtubeVideo {
 
   svg {
     position: absolute;
-    width: 25px;
-    height: 25px;
-    top: 10px;
+    width: 17px;
+    height: 17px;
+    top: 15px;
     left: 12px;
   }
 }

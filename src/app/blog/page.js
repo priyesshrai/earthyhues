@@ -4,6 +4,7 @@ import axios from "axios";
 import Loading from "@/components/Loading/Loading";
 import Link from "next/link";
 import NotFoundLoader from "@/components/NotFoundLoader/NotFoundLoader";
+import Image from "next/image";
 // import { fetchDestinationPaths } from "@/helper/feachPath";
 
 function Blog() {

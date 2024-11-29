@@ -89,7 +89,7 @@ function Footer() {
         />
         {/* /.main-footer__bg */}
         <div className="container">
-          <div className="row">
+          <div className="row"> 
             {/* /.col-md-6 */}
             <div
               className="col-lg-6 col-xl-4 wow animated fadeInUp"
@@ -159,12 +159,20 @@ function Footer() {
                 {/* /.footer-widget__title */}
                 <ul className="footer-widget__links">
                   <li>
-                    <Link href="#" onClick={(event) => openModal("destination", event)}>
+                    <Link
+                      href="#"
+                      onClick={(event) => openModal("destination", event)}
+                    >
                       Destinations
                     </Link>
                   </li>
                   <li>
-                    <Link href="#" onClick={(event) => openModal("passion", event)}>Passion</Link>
+                    <Link
+                      href="#"
+                      onClick={(event) => openModal("passion", event)}
+                    >
+                      Passion
+                    </Link>
                   </li>
 
                   <li onClick={scrollToTop}>

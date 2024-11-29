@@ -4,7 +4,12 @@ import axios from "axios";
 import Typewriter from "typewriter-effect";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import FormHome from "../FormHome/FormHome.js";
+import dynamic from "next/dynamic";
+import Loading from "../Loading/Loading.js";
+import Image from "next/image";
+const FormHome = dynamic(() => import("../FormHome/FormHome.js"), {
+  loading: () => <Loading />,
+});
 
 const responsive = {
   superLargeDesktop: {
@@ -109,10 +114,13 @@ const Banner = () => {
               containerClass="bdrRdr"
             >
               {data.map((item) => (
-                <div className="main-slider-one__image">
-                  <img
+                <div className="main-slider-one__image" key={item.banner_id}>
+                  <Image
                     src={item.large}
                     alt=""
+                    width={1000}
+                    height={1000}
+                    priority={true}
                     style={{ width: "100%", height: "100%" }}
                   />
                 </div>
